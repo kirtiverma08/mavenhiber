@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">
+<!-- Generated 3 Jul, 2019 11:44:54 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lti.hiber.Question" table="QUESTION">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <map name="answers" table="ANSWERS" lazy="true">
+          <key>
+                <column name="QUESTIONID" />
+            </key>
+            <map-key type="java.lang.String"></map-key>
+            <element type="java.lang.String">
+                <column name="ANSWERS" />
+            </element>
+        </map>
+    </class>
+</hibernate-mapping>
